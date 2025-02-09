@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Time</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#clock">Clock</a></li>
+        <li><a href="#alarm">Alarm</a></li>
+        <li><a href="#stopwatch">Stopwatch</a></li>
+        <li><a href="#timer">Timer</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section id="clock">
+        <x-clock>
+          <time>00:00:00</time>
+        </x-clock>
+      </section>
+      <section id="alarm">
+        <x-alarm>
+          <template>
+            <section class="alarms">
+              <input type="time" min="00:00" max="23:59" step="1" />
+              <section class="controls">
+                <button class="start material-icons">alarm_on</button>
+                <button class="pause material-icons">alarm_off</button>
+                <button class="delete material-icons">delete</button>
+              </section>
+            </section>
+          </template>
+          <section class="items"></section>
+          <section class="controls">
+            <button class="add material-icons">add_alarm</button>
+          </section>
+        </x-alarm>
+      </section>
+      <section id="stopwatch">
+        <x-stopwatch>
+          <time datetime="PT0S">00:00:00.00</time>
+          <section class="controls">
+            <button class="start material-icons">timer</button>
+            <button class="pause material-icons">timer_off</button>
+            <button class="restart material-icons">restart_alt</button>
+          </section>
+        </x-stopwatch>
+      </section>
+      <section id="timer">
+        <x-timer>
+          <time datetime="PT0S">00:00:00.00</time>
+          <section class="items">
+            <input type="time" min="00:00" max="23:59" step="1" value="00:03" />
+            <input type="time" min="00:00" max="23:59" step="1" value="00:01" />
+          </section>
+          <section class="controls">
+            <button class="start material-icons">timer</button>
+            <button class="pause material-icons">timer_off</button>
+            <button class="restart material-icons">restart_alt</button>
+            <button class="loop material-icons">loop</button>
+            <button class="no-loop material-icons">sync_disabled</button>
+          </section>
+        </x-timer>
+      </section>
+    </main>
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

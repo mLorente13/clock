@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100vh;
+}
+
+nav > ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+nav > ul > li {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+main {
+  display: flex;
+}
+
+main > section:not(:target) {
+  display: none;
+}
