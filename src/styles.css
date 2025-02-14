@@ -19,6 +19,7 @@ nav > ul {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
+    padding: 0;
 }
 
 nav > ul > li {
@@ -58,6 +59,7 @@ main > section:not(:target) {
 .clock {
     font-size: 15rem;
     font-weight: bold;
+    color: white;
 }
 
 .timer-content {
@@ -100,4 +102,36 @@ x-timer {
     height: 90vh;
     gap: 1rem;
     color: #333;
+}
+
+@media (max-width: 1200px) {
+    .clock {
+        font-size: 12rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .clock {
+        font-size: 10rem;
+    }
+}
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .timer-content {
+        padding: 8rem 2rem;
+        font-size: 2rem;
+    }
+
+    .clock {
+        font-size: 7rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .clock {
+        font-size: 4rem;
+    }
 }
