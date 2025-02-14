@@ -26,7 +26,7 @@ export default class Timer extends HTMLElement {
                     progress = (remaining / intervals[i]) * 100;
                     document.documentElement.style.setProperty(
                         "--progress",
-                        `${progress}%`
+                        `${100 - progress}%`
                     );
                     i += 1;
                 }
@@ -35,7 +35,7 @@ export default class Timer extends HTMLElement {
                 progress = (remaining / intervals[i]) * 100;
                 document.documentElement.style.setProperty(
                     "--progress",
-                    `${progress}%`
+                    `${100 - progress}%`
                 );
                 inputs.forEach((input, j) => {
                     input.classList.toggle("current-interval", i === j);
