@@ -76,6 +76,16 @@ main > section:not(:target) {
     position: relative;
 }
 
+.controls > button {
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: white;
+    background-color: transparent;
+    border: 2px solid var(--accentColor);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 .timer-content::before {
     content: "";
     position: absolute;
