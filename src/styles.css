@@ -2,6 +2,8 @@
 
 :root {
     --progress: 0%;
+    --accentColor: #6a00ff;
+    --darkPrimary: #0d1317;
 }
 
 body {
@@ -10,7 +12,7 @@ body {
     font-family: "Red Hat Mono", monospace;
     margin: 0;
     height: 100vh;
-    background-color: #fcfcfc;
+    background-color: var(--darkPrimary);
 }
 
 nav > ul {
@@ -22,6 +24,17 @@ nav > ul {
 nav > ul > li {
     flex: 1 1 auto;
     text-align: center;
+}
+
+li > a {
+    display: block;
+    padding: 1rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+li > a:hover {
+    background-color: #333;
 }
 
 main {
@@ -54,7 +67,8 @@ main > section:not(:target) {
     box-sizing: border-box;
     padding: 11rem 3rem;
     border-radius: 100%;
-    background-color: #fff;
+    background-color: var(--darkPrimary);
+    color: #fff;
     font-size: 3rem;
     position: relative;
 }
@@ -70,8 +84,7 @@ main > section:not(:target) {
     border-radius: 100%;
     z-index: -1;
     background: conic-gradient(
-        rgb(53, 63, 255) 0%,
-        rgb(53, 63, 255) var(--progress),
+        var(--accentColor) var(--progress),
         #fff var(--progress),
         #fff 100%
     );
