@@ -7,3 +7,7 @@ customElements.define("x-alarm", Alarm);
 customElements.define("x-clock", Clock);
 customElements.define("x-stopwatch", Stopwatch);
 customElements.define("x-timer", Timer);
+
+if (window.location.hash == "") {
+    window.location.hash = "clock";
+}
