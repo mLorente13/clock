@@ -12,7 +12,7 @@ body {
     flex-direction: column;
     font-family: "Red Hat Mono", monospace;
     margin: 0;
-    height: 100vh;
+    height: 100dvh;
     background-color: var(--darkPrimary);
 }
 
@@ -42,6 +42,7 @@ li > a:focus {
 
 main {
     display: flex;
+    height: 100dvh;
 }
 
 main > section:not(:target) {
@@ -54,13 +55,17 @@ main > section:not(:target) {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 80vh;
+    height: 80dvh;
 }
 
 .clock {
     font-size: 15rem;
     font-weight: 600;
     color: var(--lightPrimary);
+}
+
+.controls {
+    margin-top: 2rem;
 }
 
 .timer-content {
@@ -111,7 +116,7 @@ x-timer {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 80vh;
+    height: 80dvh;
     gap: 1rem;
     color: var(--lightPrimary);
 }
@@ -162,7 +167,7 @@ x-timer:not([loop]) .controls {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 80vh;
+    height: 80dvh;
     gap: 1rem;
     color: var(--lightPrimary);
 }
@@ -204,11 +209,32 @@ x-stopwatch[paused] .controls {
 }
 
 @media (max-width: 992px) {
+    .timer,
+    .clock,
+    .stopwatch,
+    .alarm {
+        height: 95dvh;
+    }
     .clock {
         font-size: 10rem;
     }
+    .timer-content {
+        height: 750px;
+        width: 750px;
+        font-size: 5.5rem;
+    }
+
+    .controls > button {
+        font-size: 3rem;
+        padding: 2.5rem;
+    }
 }
 @media (max-width: 768px) {
+    .timer-content {
+        height: 550px;
+        width: 550px;
+    }
+
     main {
         flex-direction: column;
     }
@@ -220,8 +246,6 @@ x-stopwatch[paused] .controls {
     }
 
     .timer-content {
-        height: 350px;
-        width: 350px;
         font-size: 3rem;
     }
 
