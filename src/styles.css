@@ -68,7 +68,8 @@ main > section:not(:target) {
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    padding: 11rem 3rem;
+    width: 500px;
+    height: 500px;
     border-radius: 100%;
     background-color: var(--darkPrimary);
     color: var(--lightPrimary);
@@ -113,6 +114,46 @@ x-timer {
     height: 80vh;
     gap: 1rem;
     color: var(--lightPrimary);
+}
+
+x-timer[paused] .controls {
+    .pause {
+        display: none;
+    }
+
+    .start {
+        display: initial;
+    }
+}
+
+x-timer:not([paused]) .controls {
+    .pause {
+        display: initial;
+    }
+
+    .start {
+        display: none;
+    }
+}
+
+x-timer[loop] .controls {
+    .loop {
+        display: none;
+    }
+
+    .no-loop {
+        display: initial;
+    }
+}
+
+x-timer:not([loop]) .controls {
+    .loop {
+        display: initial;
+    }
+
+    .no-loop {
+        display: none;
+    }
 }
 
 .stopwatch {
@@ -171,20 +212,21 @@ x-stopwatch[paused] .controls {
     main {
         flex-direction: column;
     }
-
-    .timer-content {
-        padding: 8rem 2rem;
-        font-size: 2rem;
-    }
-
-    .clock {
-        font-size: 7rem;
-    }
 }
 
 @media (max-width: 576px) {
     .clock {
         font-size: 4rem;
+    }
+
+    .timer-content {
+        height: 350px;
+        width: 350px;
+        font-size: 3rem;
+    }
+
+    .clock {
+        font-size: 7rem;
     }
 }
 

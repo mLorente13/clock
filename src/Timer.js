@@ -125,7 +125,7 @@ export default class Timer extends HTMLElement {
         const time = this.querySelector("time");
         time.dateTime = "PT0S";
         time.textContent = "00:00:00.00";
-        this.paused = false;
+        this.paused = true;
         this.startTime = "";
         document.documentElement.style.setProperty("--progress", "0%");
     }
