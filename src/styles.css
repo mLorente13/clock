@@ -60,7 +60,7 @@ main > section:not(:target) {
 
 .clock {
     font-size: 15rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--lightPrimary);
 }
 
@@ -78,7 +78,7 @@ main > section:not(:target) {
     border-radius: 100%;
     background-color: var(--darkPrimary);
     color: var(--lightPrimary);
-    font-size: 3rem;
+    font-size: 4rem;
     position: relative;
 }
 
@@ -98,8 +98,8 @@ main > section:not(:target) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 103%;
-    height: 103%;
+    width: 105%;
+    height: 105%;
     border-radius: 100%;
     z-index: -1;
     background: conic-gradient(
