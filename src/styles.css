@@ -14,6 +14,7 @@ body {
     margin: 0;
     height: 100dvh;
     background-color: var(--darkPrimary);
+    color: var(--lightPrimary);
 }
 
 nav > ul {
@@ -31,7 +32,7 @@ nav > ul > li {
 li > a {
     display: block;
     padding: 1rem;
-    color: #fff;
+    color: var(--lightPrimary);
     text-decoration: none;
 }
 
@@ -61,11 +62,30 @@ main > section:not(:target) {
 .clock {
     font-size: 15rem;
     font-weight: 500;
-    color: var(--lightPrimary);
 }
 
-.controls {
-    margin-top: 2rem;
+#alarm {
+    width: 100%;
+}
+
+.alarms {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+x-alarm > .controls {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.alarms > input {
+    margin-bottom: 0 !important;
 }
 
 .timer-content {
@@ -77,15 +97,38 @@ main > section:not(:target) {
     height: 500px;
     border-radius: 100%;
     background-color: var(--darkPrimary);
-    color: var(--lightPrimary);
     font-size: 4rem;
     position: relative;
+}
+
+.items input {
+    padding: 0.75rem 1rem;
+    font-size: 1.5rem;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: transparent;
+    margin-bottom: 1rem;
+    color-scheme: light dark;
+}
+
+.items {
+    margin-top: 1rem;
+}
+
+.items > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.items input:focus {
+    outline: none;
+    border-color: var(--accentColor);
 }
 
 .controls > button {
     padding: 1rem;
     font-size: 1.5rem;
-    color: white;
+    color: var(--lightPrimary);
     background-color: transparent;
     border: 2px solid var(--accentColor);
     border-radius: 50%;
@@ -104,10 +147,9 @@ main > section:not(:target) {
     z-index: -1;
     background: conic-gradient(
         var(--accentColor) var(--progress),
-        #fff var(--progress),
-        #fff 100%
+        var(--lightPrimary) var(--progress),
+        var(--lightPrimary) 100%
     );
-    background-color: var(--lightPrimary);
 }
 
 x-timer {
@@ -118,7 +160,6 @@ x-timer {
     width: 100%;
     height: 80dvh;
     gap: 1rem;
-    color: var(--lightPrimary);
 }
 
 x-timer[paused] .controls {
@@ -169,7 +210,6 @@ x-timer:not([loop]) .controls {
     width: 100%;
     height: 80dvh;
     gap: 1rem;
-    color: var(--lightPrimary);
 }
 
 x-stopwatch {
@@ -209,11 +249,15 @@ x-stopwatch[paused] .controls {
 }
 
 @media (max-width: 992px) {
+    li > a {
+        font-size: 2rem;
+    }
+
     .timer,
     .clock,
     .stopwatch,
     .alarm {
-        height: 95dvh;
+        height: 90dvh;
     }
     .clock {
         font-size: 10rem;
@@ -222,6 +266,11 @@ x-stopwatch[paused] .controls {
         height: 750px;
         width: 750px;
         font-size: 5.5rem;
+    }
+
+    .items input,
+    .items label {
+        font-size: 2rem;
     }
 
     .controls > button {
@@ -260,6 +309,15 @@ x-stopwatch[paused] .controls {
         color: var(--darkPrimary);
     }
 
+    li > a {
+        color: var(--darkPrimary);
+    }
+
+    li > a:hover,
+    li > a:focus {
+        background-color: #ccc;
+    }
+
     .timer-content::before {
         background: conic-gradient(
             var(--accentColor) var(--progress),
@@ -271,5 +329,10 @@ x-stopwatch[paused] .controls {
     .timer-content {
         color: var(--darkPrimary);
         background-color: var(--lightPrimary);
+    }
+
+    .controls > button {
+        color: var(--darkPrimary);
+        border: 6px solid var(--accentColor);
     }
 }

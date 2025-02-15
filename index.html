@@ -71,20 +71,28 @@
                         >00:00:00.00</time
                     >
                     <section class="items">
-                        <input
-                            type="time"
-                            min="00:00"
-                            max="23:59"
-                            step="1"
-                            value="00:03"
-                        />
-                        <input
-                            type="time"
-                            min="00:00"
-                            max="23:59"
-                            step="1"
-                            value="00:01"
-                        />
+                        <div>
+                            <label for="interval1">Interval 1</label>
+                            <input
+                                id="interval1"
+                                type="time"
+                                min="00:00"
+                                max="23:59"
+                                step="1"
+                                value="00:03"
+                            />
+                        </div>
+                        <div>
+                            <label for="interval2">Interval 2</label>
+                            <input
+                                id="interval2"
+                                type="time"
+                                min="00:00"
+                                max="23:59"
+                                step="1"
+                                value="00:01"
+                            />
+                        </div>
                     </section>
                     <section class="controls">
                         <button class="start material-icons">timer</button>
