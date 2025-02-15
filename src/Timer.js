@@ -17,10 +17,10 @@ export default class Timer extends HTMLElement {
                 new Date() - new Date(this.startTime)
             ).getTime();
 
-            let i = 0;
             let progress = 0;
             if (remaining < total || this.loop) {
                 remaining %= total;
+                let i = 0;
                 while (i < intervals.length && remaining > intervals[i]) {
                     remaining -= intervals[i];
                     progress = (remaining / intervals[i]) * 100;
