@@ -41,12 +41,14 @@
         </nav>
         <main>
             <section class="clock" id="clock">
-                <x-clock>
+                <x-clock
+                    aria-label="Current time displayed in a 24-hour format"
+                >
                     <time>00:00:00</time>
                 </x-clock>
             </section>
             <section id="alarm">
-                <x-alarm>
+                <x-alarm aria-label="List of alarms">
                     <template>
                         <section class="alarms">
                             <input
@@ -81,7 +83,10 @@
                 </x-alarm>
             </section>
             <section class="stopwatch" id="stopwatch">
-                <x-stopwatch paused>
+                <x-stopwatch
+                    paused
+                    aria-label="Stopwatch with start, pause, and restart buttons"
+                >
                     <time datetime="PT0S">00:00:00.00</time>
                     <section class="controls">
                         <button class="start">
@@ -100,7 +105,10 @@
                 </x-stopwatch>
             </section>
             <section id="timer" class="timer">
-                <x-timer paused>
+                <x-timer
+                    paused
+                    aria-label="Timer with start, pause, and restart buttons"
+                >
                     <time class="timer-content" datetime="PT0S"
                         >00:00:00.00</time
                     >
