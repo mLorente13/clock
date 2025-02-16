@@ -17,10 +17,6 @@ body {
     color: var(--lightPrimary);
 }
 
-main {
-    margin-bottom: 2rem;
-}
-
 nav > ul {
     display: flex;
     flex-wrap: wrap;
@@ -50,6 +46,7 @@ li > a:focus {
 
 main {
     display: flex;
+    margin-bottom: 2rem;
 }
 
 main > section:not(:target) {
@@ -141,20 +138,8 @@ main > section:not(:target) {
     }
 }
 
-.timer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    width: 500px;
-    height: 500px;
-    border-radius: 100%;
-    background-color: var(--darkPrimary);
-    font-size: 4rem;
-    position: relative;
-}
-
-.items input {
+.items input,
+.alarms input {
     padding: 0.75rem 1rem;
     font-size: 1.5rem;
     border: 2px solid white;
@@ -180,6 +165,58 @@ main > section:not(:target) {
 .items input:focus {
     outline: none;
     border-color: var(--accentColor);
+}
+
+.stopwatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+x-stopwatch {
+    font-size: 7rem;
+}
+
+x-stopwatch .controls {
+    display: flex;
+    justify-self: center;
+    gap: 1rem;
+}
+
+x-stopwatch:not([paused]) .controls {
+    .pause {
+        display: initial;
+    }
+
+    .start {
+        display: none;
+    }
+}
+
+x-stopwatch[paused] .controls {
+    .pause {
+        display: none;
+    }
+
+    .start {
+        display: initial;
+    }
+}
+
+.timer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 500px;
+    height: 500px;
+    border-radius: 100%;
+    background-color: var(--darkPrimary);
+    font-size: 4rem;
+    position: relative;
 }
 
 .timer-content::before {
@@ -249,45 +286,6 @@ x-timer:not([loop]) .controls {
     }
 }
 
-.stopwatch {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 1rem;
-}
-
-x-stopwatch {
-    font-size: 7rem;
-}
-
-x-stopwatch .controls {
-    display: flex;
-    justify-self: center;
-    gap: 1rem;
-}
-
-x-stopwatch:not([paused]) .controls {
-    .pause {
-        display: initial;
-    }
-
-    .start {
-        display: none;
-    }
-}
-
-x-stopwatch[paused] .controls {
-    .pause {
-        display: none;
-    }
-
-    .start {
-        display: initial;
-    }
-}
-
 @media (max-width: 1200px) {
     .clock {
         font-size: 12rem;
@@ -302,6 +300,7 @@ x-stopwatch[paused] .controls {
     .clock {
         font-size: 10rem;
     }
+
     .timer-content {
         height: 650px;
         width: 650px;
