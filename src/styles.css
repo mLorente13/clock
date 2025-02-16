@@ -284,11 +284,6 @@ x-stopwatch[paused] .controls {
     .items label {
         font-size: 1.75rem;
     }
-
-    .controls > button {
-        font-size: 3rem;
-        padding: 1.5rem;
-    }
 }
 
 @media (max-width: 768px) {
@@ -299,11 +294,6 @@ x-stopwatch[paused] .controls {
 
     main {
         flex-direction: column;
-    }
-
-    .controls > button {
-        font-size: 3rem;
-        padding: 2.5rem;
     }
 }
 
