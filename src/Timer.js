@@ -119,6 +119,8 @@ export default class Timer extends HTMLElement {
 
     pause() {
         this.paused = true;
+        document.getElementById("timer-sound").pause();
+        document.getElementById("timer-sound").removeAttribute("loop");
     }
 
     restart() {
@@ -131,6 +133,8 @@ export default class Timer extends HTMLElement {
     }
 
     start() {
+        document.getElementById("timer-sound").play();
+        document.getElementById("timer-sound").setAttribute("loop", "");
         const time = this.querySelector("time");
         time.dateTime = time.dateTime || "PT0S";
         this.paused = false;
