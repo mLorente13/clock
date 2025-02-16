@@ -9,12 +9,16 @@
 
 body {
     display: flex;
+    min-height: 100dvh;
     flex-direction: column;
     font-family: "Red Hat Mono", monospace;
     margin: 0;
-    height: 100dvh;
     background-color: var(--darkPrimary);
     color: var(--lightPrimary);
+}
+
+main {
+    margin-bottom: 2rem;
 }
 
 nav > ul {
@@ -43,7 +47,6 @@ li > a:focus {
 
 main {
     display: flex;
-    height: 100dvh;
 }
 
 main > section:not(:target) {
@@ -51,17 +54,27 @@ main > section:not(:target) {
 }
 
 .clock,
-.timer {
+.timer,
+.stopwatch {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 80dvh;
 }
 
 .clock {
     font-size: 15rem;
     font-weight: 500;
+    height: 70vh;
+}
+
+.stopwatch {
+    height: 70vh;
+}
+
+.timer {
+    margin-top: 5rem;
+    min-height: 80dvh;
 }
 
 #alarm {
@@ -158,7 +171,6 @@ x-timer {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 80dvh;
     gap: 1rem;
 }
 
@@ -208,7 +220,6 @@ x-timer:not([loop]) .controls {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 80dvh;
     gap: 1rem;
 }
 
@@ -253,24 +264,34 @@ x-stopwatch[paused] .controls {
         font-size: 2rem;
     }
 
-    .timer,
-    .clock,
-    .stopwatch,
-    .alarm {
-        height: 90dvh;
-    }
     .clock {
         font-size: 10rem;
     }
     .timer-content {
-        height: 750px;
-        width: 750px;
-        font-size: 5.5rem;
+        height: 650px;
+        width: 650px;
+        font-size: 5rem;
     }
 
     .items input,
     .items label {
-        font-size: 2rem;
+        font-size: 1.75rem;
+    }
+
+    .controls > button {
+        font-size: 3rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .timer-content {
+        height: 650px;
+        width: 650px;
+    }
+
+    main {
+        flex-direction: column;
     }
 
     .controls > button {
@@ -278,28 +299,14 @@ x-stopwatch[paused] .controls {
         padding: 2.5rem;
     }
 }
-@media (max-width: 768px) {
-    .timer-content {
-        height: 550px;
-        width: 550px;
-    }
-
-    main {
-        flex-direction: column;
-    }
-}
 
 @media (max-width: 576px) {
     .clock {
-        font-size: 4rem;
+        font-size: 7rem; /* Ensure this is the final font-size for .clock */
     }
 
     .timer-content {
         font-size: 3rem;
-    }
-
-    .clock {
-        font-size: 7rem;
     }
 }
 
