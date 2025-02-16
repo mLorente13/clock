@@ -127,14 +127,12 @@ main > section:not(:target) {
 
     .start {
         background-color: transparent;
-        color: var(--darkPrimary);
     }
 }
 
 .alarms:not([paused]) .controls {
     .pause {
         background-color: transparent;
-        color: var(--darkPrimary);
     }
 
     .start {
