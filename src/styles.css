@@ -34,7 +34,10 @@ nav > ul > li {
 }
 
 li > a {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     padding: 1rem;
     color: var(--lightPrimary);
     text-decoration: none;
