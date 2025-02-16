@@ -99,8 +99,47 @@ main > section:not(:target) {
     justify-content: center;
 }
 
-.alarms > input {
-    margin-bottom: 0 !important;
+.controls > button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75px;
+    height: 75px;
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--lightPrimary);
+    background-color: transparent;
+    border: 2px solid var(--accentColor);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.controls > button > i {
+    pointer-events: none;
+}
+
+.alarms[paused] .controls {
+    .pause {
+        background-color: var(--accentColor);
+        color: var(--lightPrimary);
+    }
+
+    .start {
+        background-color: transparent;
+        color: var(--darkPrimary);
+    }
+}
+
+.alarms:not([paused]) .controls {
+    .pause {
+        background-color: transparent;
+        color: var(--darkPrimary);
+    }
+
+    .start {
+        background-color: var(--accentColor);
+        color: var(--lightPrimary);
+    }
 }
 
 .timer-content {
@@ -126,6 +165,10 @@ main > section:not(:target) {
     color-scheme: light dark;
 }
 
+.alarms > input {
+    margin-bottom: 0;
+}
+
 .items {
     margin-top: 1rem;
 }
@@ -138,21 +181,6 @@ main > section:not(:target) {
 .items input:focus {
     outline: none;
     border-color: var(--accentColor);
-}
-
-.controls > button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 75px;
-    height: 75px;
-    padding: 1rem;
-    font-size: 1rem;
-    color: var(--lightPrimary);
-    background-color: transparent;
-    border: 2px solid var(--accentColor);
-    border-radius: 50%;
-    cursor: pointer;
 }
 
 .timer-content::before {
@@ -192,6 +220,7 @@ x-timer[paused] .controls {
 }
 
 x-timer:not([paused]) .controls {
+    color: var(--lightPrimary);
     .pause {
         display: initial;
     }
@@ -280,6 +309,12 @@ x-stopwatch[paused] .controls {
         font-size: 5rem;
     }
 
+    .controls > button {
+        width: 125px;
+        height: 125px;
+        font-size: 1.75rem;
+    }
+
     .items input,
     .items label {
         font-size: 1.75rem;
@@ -299,7 +334,7 @@ x-stopwatch[paused] .controls {
 
 @media (max-width: 576px) {
     .clock {
-        font-size: 7rem; /* Ensure this is the final font-size for .clock */
+        font-size: 7rem;
     }
 
     .timer-content {
@@ -337,6 +372,10 @@ x-stopwatch[paused] .controls {
 
     .controls > button {
         color: var(--darkPrimary);
-        border: 6px solid var(--accentColor);
+    }
+
+    .items input {
+        border-color: var(--darkPrimary);
+        background-color: var(--lightPrimary);
     }
 }
