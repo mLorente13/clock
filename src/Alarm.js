@@ -1,7 +1,7 @@
 export default class Alarm extends HTMLElement {
     #intervalCallback;
     #intervalId = 0;
-    #alarmSound = new Audio("src/alarm-sound.wav");
+    #alarmSound = document.getElementById("alarm-sound");
 
     constructor() {
         super();
