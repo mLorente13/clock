@@ -1,7 +1,7 @@
 export default class Timer extends HTMLElement {
     #intervalCallback;
     #intervalId = 0;
-
+    #timerSound = document.getElementById("timer-sound");
     constructor() {
         super();
         this.addEventListener("click", this);
@@ -47,6 +47,10 @@ export default class Timer extends HTMLElement {
                 inputs.forEach((input) => {
                     input.classList.remove("current-interval");
                 });
+                document.documentElement.style.setProperty("--progress", "0%");
+                this.#timerSound.pause();
+                this.#timerSound.removeAttribute("loop");
+                this.setAttribute("paused", "");
             }
 
             time.dateTime = `PT${ms / 1000}S`;
