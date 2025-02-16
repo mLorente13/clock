@@ -134,6 +134,8 @@ export default class Timer extends HTMLElement {
         this.paused = true;
         this.startTime = "";
         document.documentElement.style.setProperty("--progress", "0%");
+        this.#timerSound.pause();
+        this.#timerSound.removeAttribute("loop");
     }
 
     start() {
