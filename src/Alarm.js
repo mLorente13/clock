@@ -1,6 +1,7 @@
 export default class Alarm extends HTMLElement {
     #intervalCallback;
     #intervalId = 0;
+    #alarmSound = new Audio("src/alarm-sound.wav");
 
     constructor() {
         super();
@@ -9,25 +10,28 @@ export default class Alarm extends HTMLElement {
         this.#intervalCallback = () => {
             this.alarms.forEach((alarm) => {
                 const { value } = alarm.querySelector("input");
-                console.log(typeof value);
                 const date = new Date(
                     new Date().toISOString().slice(0, 10) + "T" + value
                 ).getTime();
-                if (date) {
+                if (date && !alarm.hasAttribute("paused")) {
                     const delta = Date.now() - date;
                     if (delta > 0 && delta < new Date(this.duration)) {
                         alarm.setAttribute("ringing", "");
+                        this.#alarmSound.play();
+                        this.#alarmSound.loop = true;
                         this.dispatchEvent(
                             new CustomEvent("ring", {
                                 bubbles: true,
                                 detail: alarm,
                             })
                         );
+                        this.sendNotification(alarm);
                         return;
                     }
                 }
-
+                this.#alarmSound.pause();
                 alarm.removeAttribute("ringing");
+                return;
             });
         };
     }
@@ -45,7 +49,7 @@ export default class Alarm extends HTMLElement {
     }
 
     add() {
-        if (Notification.permission != "granted") {
+        if (Notification.permission !== "granted") {
             Notification.requestPermission();
         }
         const alarm = this.querySelector("template").content.cloneNode(true);
@@ -91,16 +95,17 @@ export default class Alarm extends HTMLElement {
             alarm.removeAttribute("paused");
         }
     }
-}
 
-// addEventListener("ring", (event) => {
-//     const { detail } = event;
-//     const notification = new Notification("Alarm", {
-//         body: detail.querySelector("input").value,
-//     });
-//     notification.addEventListener("click", () => {
-//         notification.close();
-//         event.bubbles = false;
-//         detail.dispatchEvent(event);
-//     });
-// });
+    sendNotification(alarm) {
+        if (Notification.permission === "granted") {
+            const notification = new Notification("Alarm Ringing!", {
+                body: "Click to stop the alarm.",
+                tag: "alarm-ring",
+            });
+            notification.onclick = () => {
+                alarm.removeAttribute("ringing");
+                notification.close();
+            };
+        }
+    }
+}

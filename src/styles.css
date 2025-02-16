@@ -93,9 +93,8 @@ main > section:not(:target) {
     margin-bottom: 2.5rem;
 }
 
-x-alarm > .controls {
+.controls {
     display: flex;
-    width: 100%;
     gap: 1rem;
     justify-content: center;
 }
@@ -142,8 +141,13 @@ x-alarm > .controls {
 }
 
 .controls > button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75px;
+    height: 75px;
     padding: 1rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: var(--lightPrimary);
     background-color: transparent;
     border: 2px solid var(--accentColor);

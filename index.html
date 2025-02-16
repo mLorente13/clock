@@ -55,21 +55,27 @@
                                 step="1"
                             />
                             <section class="controls">
-                                <button class="start material-icons">
-                                    alarm_on
+                                <button class="start">
+                                    <i class="material-icons">alarm_on</i>
+                                    Enable
                                 </button>
-                                <button class="pause material-icons">
-                                    alarm_off
+                                <button class="pause">
+                                    <i class="material-icons">alarm_off</i>
+                                    Disable
                                 </button>
-                                <button class="delete material-icons">
-                                    delete
+                                <button class="delete">
+                                    <i class="material-icons">delete</i>
+                                    Delete
                                 </button>
                             </section>
                         </section>
                     </template>
                     <section class="items"></section>
                     <section class="controls">
-                        <button class="add material-icons">add_alarm</button>
+                        <button class="add">
+                            <i class="material-icons">add_alarm</i>
+                            Add
+                        </button>
                     </section>
                 </x-alarm>
             </section>
@@ -77,10 +83,17 @@
                 <x-stopwatch paused>
                     <time datetime="PT0S">00:00:00.00</time>
                     <section class="controls">
-                        <button class="start material-icons">timer</button>
-                        <button class="pause material-icons">timer_off</button>
-                        <button class="restart material-icons">
-                            restart_alt
+                        <button class="start">
+                            <i class="material-icons">timer</i>
+                            Start
+                        </button>
+                        <button class="pause">
+                            <i class="material-icons">timer_off</i>
+                            Pause
+                        </button>
+                        <button class="restart">
+                            <i class="material-icons">restart_alt</i>
+                            Restart
                         </button>
                     </section>
                 </x-stopwatch>
@@ -115,14 +128,25 @@
                         </div>
                     </section>
                     <section class="controls">
-                        <button class="start material-icons">timer</button>
-                        <button class="pause material-icons">timer_off</button>
-                        <button class="restart material-icons">
-                            restart_alt
+                        <button class="start">
+                            <i class="material-icons">timer</i>
+                            Start
                         </button>
-                        <button class="loop material-icons">loop</button>
-                        <button class="no-loop material-icons">
-                            sync_disabled
+                        <button class="pause">
+                            <i class="material-icons">timer_off</i>
+                            Pause
+                        </button>
+                        <button class="restart">
+                            <i class="material-icons">restart_alt</i>
+                            Restart
+                        </button>
+                        <button class="loop">
+                            <i class="material-icons">loop</i>
+                            Loop
+                        </button>
+                        <button class="no-loop">
+                            <i class="material-icons">sync_disabled</i>
+                            No Loop
                         </button>
                     </section>
                 </x-timer>
